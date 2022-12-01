@@ -1,18 +1,13 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import SEO from "~/components/SEO";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-      <title>blog on ginkgo</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO title="首页" />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-      
-      </main>
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center"></main>
 
       <footer className="flex h-24 w-full items-center justify-center border-t">
         <a
@@ -21,12 +16,12 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
