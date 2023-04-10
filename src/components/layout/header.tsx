@@ -9,33 +9,55 @@ import ThemeSwitch from "./themeSwitch";
 const Header = () => {
   const [show, setShow] = useState(true);
   const oldWindowScroll = useRef({
-    top: 0, // 历史滚动距离
-    flag: 0, // 下次滚动否需要隐藏
     throttle: false, // 是否需要节流
   });
 
   useEffect(() => {
     // 首次加载时查看 scrollTop 是否大于 0，如果大于 0，则隐藏
-    if (window.scrollY > 0) {
+    if (window.scrollY <= window.innerHeight) {
       setShow(false);
     }
   }, []);
+
+  useEventListener("scroll", () => {
+    if (oldWindowScroll.current.throttle) return;
+    const scrollTop = Math.max(window.scrollY, 0);
+    if (scrollTop > window.innerHeight) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+    setTimeout(() => {
+      oldWindowScroll.current.throttle = false;
+    }, 100);
+  });
   return (
     <div
       className={classNames(
-        "w-full h-24",
-        "border-b border-b-gray-200 dark:border-b-gray-700"
+        "fixed top-0 w-full h-24 px-8 bg-white",
+        "border-b border-b-gray-200 dark:border-b-gray-700",
+        {
+          "-translate-y-24": !show,
+        },
+        "transition-transform"
       )}
     >
-      <header className={classNames("h-full w-full", "flex items-center")}>
+      <header
+        className={classNames(
+          "h-full w-full",
+          "flex items-center justify-between"
+        )}
+      >
         <Link href="/">
           <span className="text-3xl">高天的Blog</span>
         </Link>
-        <Nav />
-        <ThemeSwitch />
+        <div className="flex items-center">
+          <Nav />
+          <ThemeSwitch />
+        </div>
       </header>
     </div>
   );
 };
 
-export default Header;
+export default memo(Header);

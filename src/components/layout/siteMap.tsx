@@ -2,18 +2,18 @@ import classNames from "classnames";
 import Link from "next/link";
 import { sitemaps } from "~/constants/sitemaps";
 import { FC, HTMLProps } from "react";
-
+import { H3 } from "~/components/element/heading";
 const Sitemap: FC<HTMLProps<HTMLDivElement>> = ({ className }) => {
   return (
     <div className={classNames(className)}>
-      <h3
+      <H3
         className={classNames(
-          "font-roboto",
+          "font-roboto-bold",
           "text-gray-900 transition-colors duration-500 ease-in-out dark:text-gray-300"
         )}
       >
         网站地图
-      </h3>
+      </H3>
       <div className={classNames("mt-5", "flex flex-col gap-y-2")}>
         {sitemaps.map((item) => (
           <Link href={item.url} key={item.key}>

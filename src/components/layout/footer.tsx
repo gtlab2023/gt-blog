@@ -1,15 +1,16 @@
 import { memo } from "react";
 import FriendlyLink from "./friendlyLink";
 import Sitemap from "./siteMap";
+import Introduction from "./introduction";
 import classNames from "classnames";
 const Footer = () => {
   return (
-    <footer className={classNames("mt-auto w-full", "pb-16")}>
+    <footer className={classNames("mt-auto w-full", "pb-16", "px-8")}>
       {/* 边框线 */}
       <div
         className={classNames(
           "h-px w-full bg-gray-200 dark:bg-gray-700",
-          "mb-36"
+          "mb-9"
         )}
       />
 
@@ -18,11 +19,12 @@ const Footer = () => {
           className={classNames(
             "relative mx-auto w-full max-w-screen-xl",
             "grid gap-x-6 lg:gap-x-8",
-            "grid-cols-4 md:grid-cols-8 lg:grid-cols-12"
+            "grid-cols-4"
           )}
         >
           <Sitemap />
           <FriendlyLink />
+          <Introduction />
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import classNames from "classnames";
 const Nav = () => {
   const { asPath } = useRouter();
   return (
-    <nav className="h-16 sticky top-0 flex text-center justify-around items-center px-24">
+    <nav className="h-16 sticky top-0 flex text-center justify-between items-center px-4">
       {navigations.map((item) => (
         <Link key={item.key} href={item.path}>
           <span

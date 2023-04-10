@@ -11,7 +11,7 @@ const Layout: FC<Props> = ({ children }) => {
     <div
       id="layout"
       className={classNames(
-        "relative flex min-h-screen w-full flex-col items-center",
+        "relative flex min-h-screen w-full flex-col",
         "bg-white dark:bg-zinc-900"
       )}
     >

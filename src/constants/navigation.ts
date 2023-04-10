@@ -7,7 +7,7 @@ export const navigations = [
   {
     key: "articles",
     title: "文章",
-    path: "/articles",
+    path: "/posts",
   },
   ...(process.env.NODE_ENV === "development"
     ? [
