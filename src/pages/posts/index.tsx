@@ -8,7 +8,7 @@ interface Props extends HTMLProps<HTMLDivElement> {
 }
 import Link from "next/link";
 
-const postList: FC<Props> = ({ categories }) => {
+const PostList: FC<Props> = ({ categories }) => {
   const [currentPosts, setCurrentPosts] = useState(categories[0].posts);
   const changeCategory = (category: ArticleCategory) => {
     setCurrentPosts(category.posts);
@@ -41,7 +41,7 @@ const postList: FC<Props> = ({ categories }) => {
         <H2>文章列表</H2>
         {currentPosts.map((post) => {
           return (
-            <Link href={`/posts/${post.slug}`}>
+            <Link key={post.slug} href={`/posts/${post.slug}`}>
               <PostCard
                 key={post.id}
                 post={post}
@@ -57,7 +57,7 @@ const postList: FC<Props> = ({ categories }) => {
   );
 };
 
-export default postList;
+export default PostList;
 
 export async function getStaticProps() {
   const categories = await getCategories();

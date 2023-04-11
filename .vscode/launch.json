@@ -5,9 +5,9 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch via NPM",
+      "name": "lint",
       "request": "launch",
-      "runtimeArgs": ["changelog"],
+      "runtimeArgs": ["lint"],
       "runtimeExecutable": "pnpm",
       "skipFiles": ["<node_internals>/**"],
       "type": "node",
