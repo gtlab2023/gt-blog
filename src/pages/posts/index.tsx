@@ -1,5 +1,5 @@
 import { FC, HTMLProps, useState } from "react";
-import { getCategories, ArticleCategory } from "~/services";
+import { getCategories, ArticleCategory,ArticlePost } from "~/services";
 import cn from "classnames";
 import PostCard from "~/components/pages/articles/PostCard";
 import { H2 } from "~/components/element/heading";
@@ -13,7 +13,7 @@ const PostList: FC<Props> = ({ categories }) => {
   const changeCategory = (category: ArticleCategory) => {
     setCurrentPosts(category.posts);
   };
-  const goArticleDetail = (post) => {};
+  const goArticleDetail = (post:ArticlePost) => {};
 
   return (
     <div>

@@ -1,0 +1,7 @@
+name: deploy-blog
+run-name: ${{ github.actor }} is deploying blog
+on: [push]
+jobs:
+  init-env:
+    steps:
+      - run: npm install
